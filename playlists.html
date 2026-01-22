@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AnimeZone | Playlist</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header class="top-bar">
+  <h2>My Playlist</h2>
+  <a href="index.html" class="back">⬅ Home</a>
+</header>
+
+<section>
+  <h3>Recently Watched</h3>
+  <div id="recentGrid" class="grid"></div>
+</section>
+
+<section>
+  <h3>My List</h3>
+  <div id="myListGrid" class="grid"></div>
+</section>
+<div id="myListRow" class="row no-scrollbar"></div>
+
+<script>
+  document.body.classList.toggle(
+    "light",
+    localStorage.getItem("animezone_theme") === "light"
+  );
+</script>
+<script src="playlist.js"></script>
+</body>
+</html>

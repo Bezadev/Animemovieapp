@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AnimeZone</title>
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">AnimeZone</div>
+  </header>
+
+  <!-- HERO: min 500px -->
+  <section class="hero" aria-label="Featured movies">
+
+   <div class="hero-controls-top-right">
+     <button id="searchBtnHero" class="icon-btn"><a href="search.html" style="text-decoration: none;"><i class="fa fa-search"></i></a></button>
+     <button id="notifBtnHero" class="icon-btn"><i class="fa fa-bell"></i></button>
+    </div>
+
+    <div id="heroTrack" class="hero-track" tabindex="0" aria-live="polite"></div>
+    <div id="dots" class="dots" aria-hidden="true"></div>
+
+    <!-- Play modal -->
+    <div id="playModal" class="modal" aria-hidden="true">
+      <div class="panel">
+        <div id="playContainer"></div>
+        <div id="playMeta" class="panel-meta"></div>
+      </div>
+    </div>
+
+    <!-- See-all modal -->
+    <div id="seeAllModal" class="modal" aria-hidden="true">
+      <div class="panel panel-scroll">
+        <div class="panel-top">
+          <strong id="seeAllTitle">See All</strong>
+          <button id="closeSeeAll" class="icon-btn">✕</button>
+        </div>
+        <div id="seeAllList" class="seeall-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <section class="section" id="recentsSection">
+      <div class="section-header">
+        <h3>Recents</h3>
+        <div class="see-all" id="recentsSeeAll">See all</div>
+      </div>
+      <div id="recentsRow" class="row no-scrollbar"></div>
+      <div id="recentsEmpty" class="muted">Recently watched movies will appear here.</div>
+    </section>
+
+    <section class="section" id="allReleasesSection">
+      <div class="section-header">
+        <h3>All Releases</h3>
+        <div class="see-all" id="releasesSeeAll">See all</div>
+      </div>
+      <div id="releasesRow" class="row"></div>
+    </section>
+
+    <section class="section" id="subReleasesSection">
+      <div class="section-header">
+        <h3>Sub Releases</h3>
+        <div class="see-all" id="subSeeAll">See all</div>
+      </div>
+      <div id="subRow" class="row"></div>
+    </section>
+
+    <section class="section" id="dubReleasesSection">
+      <div class="section-header">
+        <h3>Dub Releases</h3>
+        <div class="see-all" id="dubSeeAll">See all</div>
+      </div>
+      <div id="dubRow" class="row"></div>
+    </section>
+
+    <section class="section" id="chineseSection">
+      <div class="section-header">
+        <h3>Chinese Animes</h3>
+        <div class="see-all" id="chinaSeeAll">See all</div>
+      </div>
+      <div id="chinaRow" class="row"></div>
+    </section>
+
+    <section class="section" id="genresSection">
+      <div class="section-header">
+        <h3>Genres</h3>
+        <div class="muted">Select a genre to view relevant anime</div>
+      </div>
+
+      <div id="genreButtons" class="genre-buttons"></div>
+      <div id="genreResults" class="genre-results"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Bottom navigation">
+    <button class="nav-item active" data-target="home" id="navHome"><i class="fa fa-home"></i></button>
+    <a class="nav-item" href="playlists.html" id="navBookmarks" title="Playlists"><i class="fa fa-bookmark"></i></a>
+   <button id="navUser" class="nav-item"><i class="fas fa-user"></i></button>
+
+  </nav>
+
+
+<!-- USER SIDE NAV -->
+<div id="userPanel" class="user-panel">
+  <div class="user-sheet">
+
+    <div class="sheet-header">
+      <span class="sheet-title">Profile</span>
+      <button id="closeUserPanel" class="close-btn">✕</button>
+    </div>
+
+    <div class="user-header">
+      <div class="avatar">👤</div>
+      <div>
+        <h3>Guest User</h3>
+        <p class="muted">AnimeZone Explorer</p>
+      </div>
+    </div>
+
+    <div class="user-stats">
+      <div class="stat">
+        <strong id="statWatched">0</strong>
+        <span>Watched</span>
+      </div>
+      <div class="stat">
+        <strong id="statList">0</strong>
+        <span>My List</span>
+      </div>
+      <div class="stat">
+        <strong id="statGenre">—</strong>
+        <span>Top Genre</span>
+      </div>
+    </div>
+
+    <div class="user-actions">
+      <div class="theme-switch-options">
+       <button class="theme-btn" data-mode="dark">🌑 Dark</button>
+       <button class="theme-btn" data-mode="light">☀️ Light</button>
+      </div>
+
+      <!-- OTHER ACTIONS -->
+      <button id="clearRecents" class="action-btn warn">🗑 Clear Watch History</button>
+      <button id="clearMyList" class="action-btn warn">❌ Clear My List</button>
+    </div>
+
+  </div>
+</div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
